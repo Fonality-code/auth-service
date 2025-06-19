@@ -1,0 +1,23 @@
+[project]
+name = "auth"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi-utils>=0.8.0",
+    "fastapi>=0.115.13",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.34.3",
+    "httpx",
+    "passlib[bcrypt]",
+    "psycopg2-binary",
+    "python-dotenv",
+    "python-jose[cryptography]",
+    "redis",
+    "bcrypt",
+    "email-validator",
+    "jinja2>=3.1.6",
+    "pydantic-settings>=2.9.1",
+    "argon2-cffi>=25.1.0",
+]

@@ -1,0 +1,26 @@
+services:
+  auth_service:
+      build:
+        context: ..
+        dockerfile: apps/auth/Dockerfile
+      container_name: wayfinder-auth-service
+      restart: unless-stopped
+      ports:
+        - "8001:8000"
+      environment:
+        - DATABASE_URL=postgresql://postgres:password@postgres:5432/auth_service
+        - REDIS_DATABASE_HOST=redis
+        - REDIS_PORT=6379
+        - REDIS_PASSWORD=password
+        - REDIS_USERNAME=default
+        - SECRET_KEY=your_secret_key
+        - GMAIL_USERNAME=''
+        - GMAIL_APP_PASSWORD=''
+        - GMAIL_SENDER_NAME='Wayfinder'
+        - GMAIL_ACCOUNT=''
+      networks:
+        - dev-network
+      depends_on:
+        postgres:
+          condition: service_healthy
+
